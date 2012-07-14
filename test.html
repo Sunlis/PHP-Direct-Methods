@@ -1,0 +1,31 @@
+<html>
+<head>
+
+	<title>PHP Direct Method Test</title>
+	
+	<script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+	<script type='text/javascript' src='js/direct.js'></script>
+	<script type='text/javascript'>
+		var do_load = function(){
+			console.log("Calling direct method");
+			direct(
+				"example",
+				{},
+				function(data){
+					console.log("Received data from direct method:");
+					console.log(data);
+					$("#some_div").html(data['html']);
+				}
+			);
+		};
+	</script>
+	
+</head>
+<body>
+
+	<div id="some_div">This was here to begin with</div>
+	
+	<input type='button' value='Load new text' onclick='do_load();' />
+
+</body>
+</html>
